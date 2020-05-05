@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'album/:userId',
+    loadChildren: () => import('./album/album.module').then( m => m.AlbumPageModule)
+  },
 ];
 
 @NgModule({

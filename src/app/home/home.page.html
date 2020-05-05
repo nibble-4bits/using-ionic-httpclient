@@ -1,20 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card *ngFor="let user of users">
+    <ion-card-header>
+      <ion-card-subtitle>{{ user.username }}</ion-card-subtitle>
+      <ion-card-title>{{ user.name }}</ion-card-title>
+    </ion-card-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        {{ user.email }}
+      </ion-item>
+      <ion-item>
+        <ion-icon name="call-outline" slot="start"></ion-icon>
+        {{ user.phone }}
+      </ion-item>
+      <ion-item lines="none">
+        <ion-button slot="end" (click)="onBtnClick(user.id)">See albums</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
